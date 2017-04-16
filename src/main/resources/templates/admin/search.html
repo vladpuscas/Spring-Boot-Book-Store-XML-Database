@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:src="@{/css/search.css}" href="/css/search.css"/>
+    <link rel="stylesheet" type="text/css" th:src="@{/css/general.css}" href="/css/general.css"/>
+
+    <title>Search</title>
+</head>
+<div th:if="${param.error}" align="center">
+    Invalid data! Please check again.
+</div>
+<body>
+    <div id="wrap">
+        <form th:action="@{/admin/search}" method="post">
+            <input id="search" name="search" type="text" placeholder="Search books by author, genre or title"/>
+            <input id="search_submit" value="Rechercher" type="submit"/>
+        </form>
+    </div>
+</body>
+</html>

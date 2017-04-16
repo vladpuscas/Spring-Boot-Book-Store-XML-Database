@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<books>
+    <book>
+        <author>Thomas Harris</author>
+        <genre>Thriller</genre>
+        <price>40.0</price>
+        <stock>8</stock>
+        <title>Hannibal</title>
+    </book>
+    <book>
+        <author>Bret Easton Ellis</author>
+        <genre>Thriller</genre>
+        <price>34.99</price>
+        <stock>0</stock>
+        <title>American Psycho</title>
+    </book>
+    <book>
+        <author>Timur Vernes</author>
+        <genre>Fiction</genre>
+        <price>29.99</price>
+        <stock>8</stock>
+        <title>Look who's back</title>
+    </book>
+    <book>
+        <author>Thomas Harris</author>
+        <genre>Thriller</genre>
+        <price>39.99</price>
+        <stock>3</stock>
+        <title>The Silence of The Lambs</title>
+    </book>
+    <book>
+        <author>Andrzej Sapkowski</author>
+        <genre>Fantasy</genre>
+        <price>29.99</price>
+        <stock>25</stock>
+        <title>The Last Wish</title>
+    </book>
+</books>

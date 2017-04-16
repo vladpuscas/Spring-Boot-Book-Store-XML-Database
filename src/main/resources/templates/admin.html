@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:src="@{/css/button.css}" href="/css/button.css"/>
+    <link rel="stylesheet" type="text/css" th:src="@{/css/general.css}" href="/css/general.css"/>
+
+    <title>Administration</title>
+</head>
+<body>
+    <a th:href="@{/admin/search}">
+        <button class='dotted thin'>Search books</button>
+    </a>
+    <a th:href="@{/admin/addBook}">
+        <button class='dotted thin'>Add new book</button>
+    </a>
+    <a th:href="@{/admin/searchUser}">
+        <button class='dotted thin'>Search users</button>
+    </a>
+    <a th:href="@{/admin/addUser}">
+        <button class='dotted thin'>Add new user</button>
+    </a>
+    <div th:if="${param.error}" align="center">
+        Invalid data! Please check again.
+    </div>
+    <dialog id="window">
+        <form th:action="@{/admin/report}" method="post">
+            <select name="format">
+                <option value="PDF">PDF</option>
+                <option value="CSV">CSV</option>
+            </select>
+            <input type="submit" value="Generate"/>
+        </form>
+    </dialog>
+    <button class='dotted thin' id="show">Generate report</button>
+    <a th:href="@{/index}">
+        <button class='dotted thin'>Home</button>
+    </a>
+    <a th:href="@{/logout}">
+        <button class='dotted thin'>Log out</button>
+    </a>
+    <script>
+        (function() {
+            var dialog = document.getElementById('window');
+            document.getElementById('show').onclick = function() {
+                dialog.show();
+            };
+            document.getElementById('exit').onclick = function() {
+                dialog.close();
+            };
+        })();
+    </script>
+
+</body>
+</html>

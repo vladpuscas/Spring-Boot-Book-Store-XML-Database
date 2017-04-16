@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:src="@{/css/button.css}" href="/css/button.css"/>
+    <link rel="stylesheet" type="text/css" th:src="@{/css/general.css}" href="/css/general.css"/>
+
+    <title>Access Denied!</title>
+</head>
+<body>
+
+    <p>You do not have access to this page!</p>
+    <a th:href="@{/index}">
+        <button class='dotted thin'>Home</button>
+    </a>
+    <div th:if="${param.error}" align="center">
+        Invalid data! Please check again.
+    </div>
+</body>
+</html>

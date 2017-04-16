@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+
+    <link rel="stylesheet" type="text/css" th:src="@{/css/button.css}" href="/css/button.css"/>
+    <link rel="stylesheet" type="text/css" th:src="@{/css/table.css}" href="/css/table.css"/>
+    <link rel="stylesheet" type="text/css" th:src="@{/css/general.css}" href="/css/general.css"/>
+
+    <title>Order</title>
+</head>
+<body>
+
+    <a th:href="@{/index}">
+        <button class='dotted thin'>Home</button>
+    </a>
+    <a th:href="@{/logout}">
+        <button class='dotted thin'>Log out</button>
+    </a>
+    <a th:href="@{/order/clearOrder}">
+        <button class='dotted thin'>Clear order</button>
+    </a>
+    <div th:if="${param.error}" align="center">
+        Invalid data! Please check again.
+    </div>
+    <section>
+        <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Title
+                        </th>
+                        <th>
+                            Author
+                        </th>
+                        <th>
+                            Genre
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            Remove
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                    <tr th:each="book : ${order}">
+                        <td th:text="${book.title}">Title</td>
+                        <td th:text="${book.author}">Author</td>
+                        <td th:text="${book.genre}">Genre</td>
+                        <td th:text="${book.price}">Price</td>
+                        <td>
+                            <a th:href="@{'/order/{title}/remove'(title=${book.title})}">
+                                Remove
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <form th:action="@{/order/confirmOrder}" method="post">
+        <button type="submit" class='dotted thin'>Confirm order</button>
+    </form>
+
+</body>
+</html>

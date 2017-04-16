@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:src="@{/css/form.css}" href="/css/form.css"/>
+    <link rel="stylesheet" type="text/css" th:src="@{/css/general.css}" href="/css/general.css"/>
+
+    <title>Add new book</title>
+</head>
+<body>
+<h1>Add new book</h1>
+<div th:if="${param.error}" align="center">
+    Invalid data! Please check again.
+</div>
+<form th:action="@{/admin/add}" class="cf" method="post">
+    <div class="half left cf">
+        <input type="text" placeholder="Title" name="title"/>
+        <input type="text" placeholder="Author" name="author"/>
+        <input type="text" placeholder="Genre" name="genre"/>
+    </div>
+    <div class="half right cf">
+        <input type="text" placeholder="Stock" name="stock"/>
+        <input type="text" placeholder="Price" name="price"/>
+    </div>
+    <input type="submit" value="Submit" id="input-submit"/>
+</form>
+</body>
+</html>

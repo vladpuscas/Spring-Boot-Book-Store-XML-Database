@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>View</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Author
+        </th>
+        <th>
+            Genre
+        </th>
+        <th>
+            Stock
+        </th>
+        <th>
+            Price
+        </th>
+    </tr>
+    <tr>
+        <td th:text="${book.title}">Title</td>
+        <td th:text="${book.author}">Author</td>
+        <td th:text="${book.genre}">Genre</td>
+        <td th:text="${book.stock}">Stock</td>
+        <td th:text="${book.price}">Price</td>
+    </tr>
+</table>
+</body>
+</html>

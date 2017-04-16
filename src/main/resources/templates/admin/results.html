@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:src="@{/css/general.css}" href="/css/general.css"/>
+    <link rel="stylesheet" type="text/css" th:src="@{/css/table.css}" href="/css/table.css"/>
+    <link rel="stylesheet" type="text/css" th:src="@{/css/button.css}" href="/css/button.css"/>
+
+    <title>Search results</title>
+</head>
+<body>
+<div th:if="${param.error}" align="center">
+    Invalid data! Please check again.
+</div>
+<a th:href="@{/admin}" sec:authorize="hasRole('ROLE_ADMIN')">
+    <button class='dotted thin'>Administration</button>
+</a>
+<section>
+    <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Author
+                    </th>
+                    <th>
+                        Genre
+                    </th>
+                    <th>
+                        Stock
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Edit
+                    </th>
+                    <th>
+                        Delete
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+                <tr th:each="book : ${result}">
+                    <td th:text="${book.title}">Title</td>
+                    <td th:text="${book.author}">Author</td>
+                    <td th:text="${book.genre}">Genre</td>
+                    <td th:text="${book.stock}">Stock</td>
+                    <td th:text="${book.price}">Price</td>
+                    <td>
+                        <a th:href="@{'/admin/{title}/edit'(title=${book.title})}">
+                            Edit
+                        </a>
+                    </td>
+                    <td>
+                        <a th:href="@{'/admin/{title}/delete'(title=${book.title})}">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:src="@{/css/search.css}" href="/css/search.css"/>
+    <link rel="stylesheet" type="text/css" th:src="@{/css/general.css}" href="/css/general.css"/>
+    <link rel="stylesheet" type="text/css" th:src="@{/css/button.css}" href="/css/button.css"/>
+    <title>Search User</title>
+</head>
+<a th:href="@{/admin}" sec:authorize="hasRole('ROLE_ADMIN')">
+    <button class='dotted thin'>Administration</button>
+</a>
+<div th:if="${param.error}" align="center">
+    Invalid data! Please check again.
+</div>
+<body>
+    <div id="wrap">
+        <form th:action="@{/admin/searchUser}" method="post">
+            <input id="search" name="search" type="text" placeholder="Search users by username"/>
+            <input id="search_submit" value="Rechercher" type="submit"/>
+        </form>
+    </div>
+</body>
+</html>
